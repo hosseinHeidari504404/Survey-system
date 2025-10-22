@@ -1,9 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Survey_system.Interfaces.IRepositores;
 using Survey_system.Models.Entities;
 namespace Survey_system.Infrastructure.Repositories
 {
 
-    public class QuestionRepository
+    public class QuestionRepository: IQuestionRepository
     {
         private readonly AppDbContext _context = new AppDbContext();
 

@@ -1,8 +1,9 @@
 ﻿using Survey_system.Infrastructure.Repositories;
+using Survey_system.Interfaces.IServices;
 using Survey_system.Models.Entities;
 namespace Survey_system.Services
 {
-    public class QuestionService
+    public class QuestionService: IQuestionService
     {
         private readonly QuestionRepository _repository;
 
@@ -26,17 +27,6 @@ namespace Survey_system.Services
         public List<Question> GetAllQuestions()
         {
             return _repository.GetAll();
-        }
-
-        public Question GetQuestionById(int id)
-        {
-            return _repository.GetById(id);
-        }
-
-        public void DeleteQuestion(int id)
-        {
-            _repository.Delete(id);
-            Console.WriteLine("Question deleted successfully.");
         }
     }
 }

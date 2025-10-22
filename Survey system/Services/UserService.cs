@@ -1,9 +1,11 @@
 ﻿using Survey_system.Infrastructure.Repositories;
+using Survey_system.Interfaces.IRepositores;
+using Survey_system.Interfaces.IServices;
 using Survey_system.Models.Entities;
 using Survey_system.Models.Enums;
 namespace Survey_system.Services
 {
-    public class UserService
+    public class UserService: IUserService
     {
         private readonly UserRepository _repository;
 

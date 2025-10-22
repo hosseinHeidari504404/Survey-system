@@ -1,8 +1,9 @@
 ﻿using Survey_system.Infrastructure.Repositories;
+using Survey_system.Interfaces.IServices;
 using Survey_system.Models.Entities;
 namespace Survey_system.Services
 {
-    public class VoteService
+    public class VoteService: IVoteService
     {
         private readonly VoteRepository _repository;
 
@@ -10,22 +11,7 @@ namespace Survey_system.Services
         {
             _repository = repository;
         }
-
-        //public void AddVote(int userId, int questionId, int optionId)
-        //{
-        //    var vote = new Vote
-        //    {
-        //        UserId = userId,
-        //        QuestionId = questionId,
-        //        OptionId = optionId,
-        //        VotedOn = DateTime.Now
-        //    };
-
-        //    _repository.Add(vote);
-        //    Console.WriteLine("Vote recorded successfully.");
-        //}
-        
-            public void AddVote(int userId, int questionId, int optionId)
+        public void AddVote(int userId, int questionId, int optionId)
             {
                 var existingVote = _repository.GetAllVotesWithRelations()
                     .FirstOrDefault(v => v.UserId == userId && v.QuestionId == questionId);
@@ -44,19 +30,10 @@ namespace Survey_system.Services
                 _repository.Add(vote);
                 Console.WriteLine("Vote registered successfully.");
             }
-        
-
-
         public List<Vote> GetAllVotes()
         {
             // return _repository.GetAll();
             return _repository.GetAllVotesWithRelations();
-        }
-
-        public void DeleteVote(int id)
-        {
-            _repository.Delete(id);
-            Console.WriteLine("Vote deleted successfully.");
         }
     }
 }

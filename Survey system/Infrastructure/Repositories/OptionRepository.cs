@@ -1,8 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Survey_system.Interfaces.IRepositores;
 using Survey_system.Models.Entities;
 namespace Survey_system.Infrastructure.Repositories
 {
-    public class OptionRepository
+    public class OptionRepository: IOptionRepository
     {
         private readonly AppDbContext _context = new AppDbContext();
 

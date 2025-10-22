@@ -1,9 +1,10 @@
 ﻿using Survey_system.Infrastructure.Repositories;
+using Survey_system.Interfaces.IServices;
 using Survey_system.Models.Entities;
 
 namespace Survey_system.Services
 {
-    public class SurveyService
+    public class SurveyService: ISurveyService
     {
         private readonly SurveyRepository _repository;
 

@@ -1,12 +1,10 @@
-﻿using Survey_system.Models.Entities;
+﻿using Survey_system.Interfaces.IRepositores;
+using Survey_system.Models.Entities;
 namespace Survey_system.Infrastructure.Repositories
 {
-    public class UserRepository
+    public class UserRepository: IUserRepository
     {
         private readonly AppDbContext _context = new AppDbContext();
-
-        public List<User> GetAll() => _context.Users.ToList();
-        public User GetById(int id) => _context.Users.FirstOrDefault(x => x.Id == id);
         public User GetByUsername(string username) => _context.Users.FirstOrDefault(x => x.Username == username);
 
         public void Add(User user)

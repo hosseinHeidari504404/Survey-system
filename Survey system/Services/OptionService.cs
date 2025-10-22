@@ -1,8 +1,9 @@
 ﻿using Survey_system.Infrastructure.Repositories;
+using Survey_system.Interfaces.IServices;
 using Survey_system.Models.Entities;
 namespace Survey_system.Services
 {
-    public class OptionService
+    public class OptionService: IOptionService
     {
         private readonly OptionRepository _repository;
 
@@ -21,22 +22,6 @@ namespace Survey_system.Services
 
             _repository.Add(option);
             Console.WriteLine("Option added successfully.");
-        }
-
-        public List<Option> GetAllOptions()
-        {
-            return _repository.GetAll();
-        }
-
-        public Option GetOptionById(int id)
-        {
-            return _repository.GetById(id);
-        }
-
-        public void DeleteOption(int id)
-        {
-            _repository.Delete(id);
-            Console.WriteLine("Option deleted successfully.");
         }
     }
 }

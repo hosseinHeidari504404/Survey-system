@@ -1,8 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Survey_system.Models.Entities;
+using Survey_system.Interfaces.IRepositores;
 namespace Survey_system.Infrastructure.Repositories
 {
-    public class VoteRepository
+    public class VoteRepository:IVoteRepository
     {
         private readonly AppDbContext _context = new AppDbContext();
         public List<Vote> GetAllVotesWithRelations()
