@@ -14,10 +14,10 @@ namespace Survey_system.Infrastructure.Configurations
                 .IsRequired()
                 .HasMaxLength(500);
 
-            builder.HasOne(x => x.Survey)
-                .WithMany(x => x.Questions)
-                .HasForeignKey(x => x.SurveyId)
-                .OnDelete(DeleteBehavior.Cascade);
+            //builder.HasOne(x => x.Survey)
+            //    .WithMany(x => x.Questions)
+            //    .HasForeignKey(x => x.SurveyId)
+            //    .OnDelete(DeleteBehavior.Cascade);
 
             builder.HasMany(x => x.Options)
                 .WithOne(x => x.Question)

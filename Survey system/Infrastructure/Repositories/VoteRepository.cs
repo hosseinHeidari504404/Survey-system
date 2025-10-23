@@ -6,7 +6,7 @@ namespace Survey_system.Infrastructure.Repositories
     public class VoteRepository:IVoteRepository
     {
         private readonly AppDbContext _context = new AppDbContext();
-        public List<Vote> GetAllVotesWithRelations()
+        public List<Vote> GetAllVotes()
         {
             return _context.Votes
                 .Include(v => v.Question)  

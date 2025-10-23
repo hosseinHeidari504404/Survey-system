@@ -13,10 +13,10 @@ namespace Survey_system.Services
         }
         public void AddVote(int userId, int questionId, int optionId)
             {
-                var existingVote = _repository.GetAllVotesWithRelations()
+                var mojodVote = _repository.GetAllVotes()
                     .FirstOrDefault(v => v.UserId == userId && v.QuestionId == questionId);
 
-                if (existingVote != null)
+                if (mojodVote != null)
                     throw new Exception("You have already voted for this question.");
 
                 var vote = new Vote
@@ -33,7 +33,7 @@ namespace Survey_system.Services
         public List<Vote> GetAllVotes()
         {
             // return _repository.GetAll();
-            return _repository.GetAllVotesWithRelations();
+            return _repository.GetAllVotes();
         }
     }
 }

@@ -41,8 +41,18 @@ namespace Survey_system.Infrastructure.Repositories
             if (survey != null)
             {
                 _context.Surveys.Remove(survey);
-                _context.SaveChanges();
+                //_context.SaveChanges();
+                try
+                {
+                    _context.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.InnerException?.Message);
+                }
             }
+            
+            
         }
     }
 }

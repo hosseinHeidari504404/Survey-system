@@ -1,4 +1,5 @@
-﻿using Survey_system.Models.Entities;
+﻿using Microsoft.EntityFrameworkCore;
+using Survey_system.Models.Entities;
 namespace Survey_system.Services.Menu
 {
     public class Menu

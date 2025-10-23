@@ -14,15 +14,15 @@ namespace Survey_system.Infrastructure.Configurations
                 .IsRequired()
                 .HasMaxLength(200);
 
-            builder.HasOne(x => x.Question)
-                .WithMany(x => x.Options)
-                .HasForeignKey(x => x.QuestionId)
-                .OnDelete(DeleteBehavior.Cascade);
+            //builder.HasOne(x => x.Question)
+            //    .WithMany(x => x.Options)
+            //    .HasForeignKey(x => x.QuestionId)
+            //    .OnDelete(DeleteBehavior.Cascade);
 
             builder.HasMany(x => x.Votes)
                 .WithOne(x => x.Option)
                 .HasForeignKey(x => x.OptionId)
-                .OnDelete(DeleteBehavior.Restrict);
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

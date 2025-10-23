@@ -11,20 +11,20 @@ using Survey_system.Models.Entities;
             builder.ToTable("Votes");
             builder.HasKey(x => x.Id);
 
-            builder.HasOne(x => x.User)
-                .WithMany(x => x.Votes)
-                .HasForeignKey(x => x.UserId)
-                .OnDelete(DeleteBehavior.Restrict); 
+            //builder.HasOne(x => x.User)
+            //    .WithMany(x => x.Votes)
+            //    .HasForeignKey(x => x.UserId)
+            //    .OnDelete(DeleteBehavior.Restrict); 
 
-            builder.HasOne(x => x.Question)
-                .WithMany(x=> x.Votes)
-                .HasForeignKey(x => x.QuestionId)
-                .OnDelete(DeleteBehavior.Cascade); 
+            //builder.HasOne(x => x.Question)
+            //    .WithMany(x=> x.Votes)
+            //    .HasForeignKey(x => x.QuestionId)
+            //    .OnDelete(DeleteBehavior.SetNull); 
 
-            builder.HasOne(x => x.Option)
-                .WithMany(x => x.Votes)
-                .HasForeignKey(x => x.OptionId)
-                .OnDelete(DeleteBehavior.Restrict); 
+            //builder.HasOne(x => x.Option)
+            //    .WithMany(x => x.Votes)
+            //    .HasForeignKey(x => x.OptionId)
+            //    .OnDelete(DeleteBehavior.SetNull); 
         }
     }
 }

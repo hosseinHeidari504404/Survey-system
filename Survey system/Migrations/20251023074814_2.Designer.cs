@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Survey_system.Infrastructure;
 
@@ -11,9 +12,11 @@ using Survey_system.Infrastructure;
 namespace Survey_system.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20251023074814_2")]
+    partial class _2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -205,11 +208,12 @@ namespace Survey_system.Migrations
                     b.HasOne("Survey_system.Models.Entities.Option", "Option")
                         .WithMany("Votes")
                         .HasForeignKey("OptionId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.SetNull);
 
                     b.HasOne("Survey_system.Models.Entities.Question", "Question")
                         .WithMany("Votes")
-                        .HasForeignKey("QuestionId");
+                        .HasForeignKey("QuestionId")
+                        .OnDelete(DeleteBehavior.SetNull);
 
                     b.HasOne("Survey_system.Models.Entities.User", "User")
                         .WithMany("Votes")

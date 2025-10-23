@@ -4,7 +4,7 @@ namespace Survey_system.Interfaces.IRepositores
 {
     public interface IVoteRepository
     {
-        List<Vote> GetAllVotesWithRelations();
+        List<Vote> GetAllVotes();
         List<Vote> GetAll();
         Vote GetById(int id);
         void Add(Vote vote);
