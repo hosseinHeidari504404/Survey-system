@@ -12,8 +12,8 @@ using Survey_system.Infrastructure;
 namespace Survey_system.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20251021083131_init2")]
-    partial class init2
+    [Migration("20251023061352_init")]
+    partial class init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -212,15 +212,15 @@ namespace Survey_system.Migrations
                         .IsRequired();
 
                     b.HasOne("Survey_system.Models.Entities.Question", "Question")
-                        .WithMany()
+                        .WithMany("Votes")
                         .HasForeignKey("QuestionId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Survey_system.Models.Entities.User", "User")
                         .WithMany("Votes")
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Option");
@@ -238,6 +238,8 @@ namespace Survey_system.Migrations
             modelBuilder.Entity("Survey_system.Models.Entities.Question", b =>
                 {
                     b.Navigation("Options");
+
+                    b.Navigation("Votes");
                 });
 
             modelBuilder.Entity("Survey_system.Models.Entities.Survey", b =>

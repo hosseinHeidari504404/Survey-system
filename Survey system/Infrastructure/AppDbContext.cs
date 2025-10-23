@@ -15,7 +15,7 @@ namespace Survey_system.Infrastructure
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=.\SQLEXPRESS; Initial Catalog= Survey; Integrated Security=True; Trust Server Certificate=True");
+            optionsBuilder.UseSqlServer(@"Server=.\SQLEXPRESS; Initial Catalog= Survey1; Integrated Security=True; Trust Server Certificate=True");
             base.OnConfiguring(optionsBuilder);
         }
 

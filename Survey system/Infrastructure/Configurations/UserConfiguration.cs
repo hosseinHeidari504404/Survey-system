@@ -26,7 +26,7 @@ namespace Survey_system.Infrastructure.Configurations
             builder.HasMany(x => x.Votes)
                 .WithOne(x => x.User)
                 .HasForeignKey(x => x.UserId)
-                .OnDelete(DeleteBehavior.Cascade);
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

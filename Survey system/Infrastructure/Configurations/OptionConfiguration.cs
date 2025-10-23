@@ -22,7 +22,7 @@ namespace Survey_system.Infrastructure.Configurations
             builder.HasMany(x => x.Votes)
                 .WithOne(x => x.Option)
                 .HasForeignKey(x => x.OptionId)
-                .OnDelete(DeleteBehavior.Cascade);
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }
